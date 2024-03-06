@@ -1,0 +1,19 @@
+{
+  "name": "small-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --watch db.json --port 5000 ",
+    "jsonhelp": "json-server --help",
+    "taksuproject": "npm run dev --prefix taksuproject",
+    "dev": "concurrently \"npm run server\" \"npm run taksuproject\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "json-server": "^0.17.4"
+  }
+}
