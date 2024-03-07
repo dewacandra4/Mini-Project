@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 const AssetEmployeeCreate = () => {
 
     const { data: employees, isLoading : isLoadingEmployee, error: errorEmployee } = useGetList('employee');
-    const { data: assets, isLoading : isLoadingAssets, error:errorAssets } = useGetList('employee');
+    const { data: assets, isLoading : isLoadingAssets, error:errorAssets } = useGetList('assets');
     const location = useLocation();
     const employee_id = location.state?.employee_id;
 
