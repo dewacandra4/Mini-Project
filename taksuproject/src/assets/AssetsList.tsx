@@ -9,6 +9,7 @@ import {
     CreateButton,
     ExportButton,
     ImageField,
+    TextInput,
 } from 'react-admin';
 
 const ListActions = () => (
@@ -19,10 +20,14 @@ const ListActions = () => (
 );
 
 
+const postFilters = [
+    <TextInput key= "q" label="Search" source="q"  alwaysOn={true}/>,
+];
+
 
 export const AssetsList = () => 
      (
-    <List actions={<ListActions />} >
+    <List actions={<ListActions />} filters={postFilters}>
         <Datagrid >
             <TextField source="id" label ="ID" />
             <TextField source="name" />
