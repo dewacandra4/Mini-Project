@@ -3,7 +3,7 @@ import { DataProvider, withLifecycleCallbacks } from "react-admin";
 
 
 export const dataProvider = withLifecycleCallbacks (
-  jsonServerProvider("http://localhost:5000"),
+  jsonServerProvider(import.meta.env.VITE_JSON_SERVER_URL),
   [
     {
       resource: "assets",
@@ -39,9 +39,14 @@ export const dataProvider = withLifecycleCallbacks (
     }
   ])
 
-
+/**
+ * Process the image before creating or updating it.
+ *
+ * @param {any} params - The parameters for processing the image.
+ * @param {DataProvider} dataProvider - The data provider for processing the image.
+ * @return {Promise<any>} The processed parameters with the updated image data.
+ */
 const processImageBeforeCreate = async (params: any, dataProvider: DataProvider) => {
-  console.log("beforeUpdate", params, dataProvider);
         
         if (params.data.image && params.data.image.rawFile instanceof File) {
             const base64Image = await convertFileToBase64(params.data.image.rawFile);
@@ -66,7 +71,6 @@ const processImageBeforeCreate = async (params: any, dataProvider: DataProvider)
 /**
  * Convert a `File` object returned by the upload input into a base 64 string.
  */
-
 const convertFileToBase64 = (file: File) =>
   new Promise((resolve, reject) => {
     console.log("convertFileToBase64", file);
