@@ -13,7 +13,7 @@ npm install
 
 The included data provider use [ra-data-json-server](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-json-server). It fits REST APIs powered by [JSON Server](https://github.com/typicode/json-server), such as [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
-You'll find an `.env` file at the project root that includes a `VITE_JSON_SERVER_URL` variable. Set it to the URL of your backend.
+In the project root, you'll discover an .env file containing a `VITE_JSON_SERVER_URL` variable. Set this variable to the URL of your backend
 
 
 ## Usage
