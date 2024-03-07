@@ -26,7 +26,7 @@ export const App = () => (
     theme={radiantLightTheme}
     darkTheme={radiantDarkTheme}
     layout={CustomLayout}
-    >
+        >
       <Resource
         icon={ EmployeeIcon }
         name="employee"
@@ -46,7 +46,6 @@ export const App = () => (
       <Resource
         name="asset_employee" 
         create={AssetEmployeeCreate}
-
       />
   </Admin>
 );
