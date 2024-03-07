@@ -1,4 +1,4 @@
-# TaksuERP Small Project
+# TaksuERP Mini Project
 
 This is a small project named TaksuERP, which combines a JSON Server and React admin for managing data efficiently.
 
