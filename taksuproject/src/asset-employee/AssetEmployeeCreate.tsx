@@ -21,8 +21,8 @@ const AssetEmployeeCreate = () => {
     return (
         <Create title="Add new asset-employee" transform={transform} redirect={() => `employee/${selectedEmployee}/show/assets`}>
             <SimpleForm>
-                <SelectInput source="employee_id" defaultValue={selectedEmployee} validate={[required()]} fullWidth choices={employees} disabled/>
-                <SelectInput source="asset_id" validate={[required()]} fullWidth choices={assets} />
+                <SelectInput key='employee' source="employee_id" defaultValue={selectedEmployee} validate={[required()]} fullWidth choices={employees} disabled/>
+                <SelectInput key= 'asset' source="asset_id" validate={[required()]} fullWidth choices={assets} />
             </SimpleForm>
         </Create>
     );

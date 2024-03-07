@@ -13,20 +13,19 @@ export const dataProvider = withLifecycleCallbacks (
       beforeUpdate: async (params: any, dataProvider: DataProvider) => {
         return  processImageBeforeCreate(params, dataProvider)
       },
+      beforeDelete: async (params, dataProvider) => {
+          // delete all assets related to the employee
+          // first, fetch the assets
+          const { data: assets } = await dataProvider.getList('asset_employee', {
+              filter: { asset_id: params.id },
+              pagination: { page: 1, perPage: 1000 },
+              sort: { field: 'id', order: 'DESC' },
+          });
+          // then, delete them
+          await dataProvider.deleteMany('asset_employee', { ids: assets.map(asset => asset.id) });
 
-        beforeDelete: async (params, dataProvider) => {
-            // delete all assets related to the employee
-            // first, fetch the assets
-            const { data: assets } = await dataProvider.getList('asset_employee', {
-                filter: { asset_id: params.id },
-                pagination: { page: 1, perPage: 1000 },
-                sort: { field: 'id', order: 'DESC' },
-            });
-            // then, delete them
-            await dataProvider.deleteMany('asset_employee', { ids: assets.map(asset => asset.id) });
-
-            return params;
-        },
+          return params;
+      },
     },
     {
       resource: "employee",
