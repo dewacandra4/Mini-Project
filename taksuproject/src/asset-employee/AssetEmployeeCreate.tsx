@@ -6,11 +6,7 @@ const AssetEmployeeCreate = () => {
 
     const location = useLocation();
     const employee_id = location.state?.employee_id;
-
-
-
-
-
+    
     // set the employee selected
     const selectedEmployee = employee_id ;
     const transform = (data = {}) => ({ ...data, created_at: new Date() });
