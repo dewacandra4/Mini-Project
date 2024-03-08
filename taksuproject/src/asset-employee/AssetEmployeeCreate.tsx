@@ -1,5 +1,5 @@
 
-import { AutocompleteInput, Create, ReferenceInput, SelectInput, SimpleForm, required, useGetList } from "react-admin"
+import { AutocompleteInput, Create, ReferenceInput, SelectInput, SimpleForm, required } from "react-admin"
 import { useLocation } from 'react-router-dom';
 
 const AssetEmployeeCreate = () => {
